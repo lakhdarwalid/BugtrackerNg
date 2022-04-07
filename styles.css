@@ -1,0 +1,29 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* You can add global styles to this file, and also import other style files */
+/*body{
+    margin: 0;
+    padding: 1% 10%;
+    background-color: blueviolet; 
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    background-color: blueviolet;
+}
+
+.active{
+    background-color: rgb(120, 223, 223);
+  }
+*/
+body{
+    background-color: blueviolet;   
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.blue-snackbar{
+   margin-bottom: 15% !important;
+
+}

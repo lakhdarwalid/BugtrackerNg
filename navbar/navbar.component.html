@@ -1,0 +1,35 @@
+    <nav class="navbar navbar-expand-sm navbar-dark bg-black">
+        <div class="container-fluid">
+            <a class="navbar-brand text-uppercase fw-bold" href="#">BugTracker</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
+                aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarID">
+                <div class="navbar-nav mx-auto">
+                    <a class="nav-link active" aria-current="page" routerLink="home" activeLink >Home</a>
+                    <a class="nav-link active" aria-current="page" routerLink="apps-list" *ngIf="role==='admin' || role==='dev' || role==='user'" >Applications</a>
+                    <a class="nav-link active" role="button" aria-current="page" (click)="goto()" *ngIf="role==='admin' || role==='dev' || role==='user'"  >Dashboard</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active text-capitalize" aria-current="page" routerLink="role-list" *ngIf="role==='admin'"  >roles</a> 
+                    <a class="nav-link active text-capitalize" aria-current="page" routerLink="user-list" *ngIf="role==='admin'"  >users</a> 
+                    
+
+                    <div class="btn-group dropstart " *ngIf = "signIn == false">
+                        
+                            <img src="../../assets/images/user.png" 
+                            class="dropdown-toggle img-fluid" href="#" role="button" id="userPic" data-bs-toggle="dropdown" aria-expanded="false">
+                       
+                      
+                        <ul class="dropdown-menu" aria-labelledby="userPic">
+                          <li class="dropdown-item" id="hi">Hi, {{userName}}</li>
+                          <li><a class="dropdown-item" routerLink="login" (click)="signInOut()">Sign Out</a></li>
+                        </ul>
+                    </div>
+                    <a *ngIf="signIn == true" class="nav-link active text-capitalize" aria-current="page" routerLink="login" (click)="signInOut()">Login</a>   
+               
+               </div>
+            </div>
+        </div>
+    </nav>

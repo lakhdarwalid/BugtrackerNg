@@ -1,0 +1,95 @@
+/*.navbar{
+    background-color: rgb(136, 24, 241);
+    position: relative;
+    padding: .1em 1em;
+    margin: 0;
+}
+
+#btn_open{
+    position: absolute;
+    width: 20px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    top: 50%;
+    right: 5%;
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+
+#btn_open::before{
+    content: '';
+    width: 30px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    transform: translate(0,-200%);
+    cursor: pointer;
+}
+#btn_open::after{
+    content: '';
+    width: 30px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    transform: translate(0,200%);
+    cursor: pointer;
+}
+
+.listholder{
+    height: 0;
+    transition: .3s;
+}
+
+.listholder li{
+    list-style: none;
+    margin: 1em;
+    padding: .5em;    
+    display: none;
+}
+
+.listholder li:hover{
+    background-color: rgb(120, 223, 223);
+}
+h3 > a{
+    color: white;
+    text-decoration: none;
+    font-size: 5vh;
+}
+.listholder li a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+@media only screen and (min-width: 641px) {
+    .navbar{
+        display: grid;
+        grid-template-columns: 1fr 6fr;
+    }
+
+    #btn_open{
+        display: none;
+    }
+
+    #nav-list > li{
+        display: inline;
+    }
+
+    .listholder{
+        display: inline;
+        padding-top: 1em;
+        justify-self: end;
+    }
+}*/
+
+nav{
+    height: 10% !important;
+}
+
+#userPic{
+    width: 2.75em;
+    height: 2.75em;
+}
+
+#hi:hover{
+    background-color: white;
+}
