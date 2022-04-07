@@ -1,0 +1,27 @@
+<div class="container-fluid scrolling">
+    <div class="container">
+        <h3><b>Ticket # </b>{{bug?.bug_id}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>For App :</b> {{bug?.app?.name}}</h3>
+        <h5><b>Created on : </b> {{bug?.createdDate | date : "short"}} </h5>
+        <h5><b>Title : </b> {{bug?.title}} </h5>
+        <h5> <b>  Description :</b> </h5>
+        <p>{{bug?.description}}</p>
+        <h5> <b> Currently processing by :</b> {{user?.userName}} </h5>
+    </div>
+    <table class="table table-hover table-striped mx-auto" style="width: 88%;">
+        <thead>
+            <tr>
+                <th class="col-md-6">Activitiy</th>
+                <th class="col-md-3 text-center">Date</th>
+                <th class="col-md-3 text-center">Created by</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let act of activities" >
+                <td class="col-md-6">{{act.description}} </td>
+                <td class="col-md-3 text-center">{{act.activityDate | date : "short"}}</td>
+                <td class="col-md-3 text-center">{{act.user.userName}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

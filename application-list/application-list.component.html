@@ -1,0 +1,46 @@
+<div class="container">
+    <h3 class="text-center fw-bold my-4 text-uppercase text-decoration-underline">List of applications</h3>
+    <input type="text" class="form-control float-start" style="width: 30%;" placeholder="Search by name" (keypress) = "onChange()" [(ngModel)]="name">
+    <button class="btn btn-sm btn-success float-end my-0" (click)="createApp()" *ngIf ="isAdmin">Add new App</button>
+    <table class="table table-striped table-hover" matSort (matSortChange)="sortData($event)">
+        <thead>
+            <tr>
+                <th class="col-md-2" mat-sort-header = "name" >APP</th>
+                <th class="col-md-6" mat-sort-header = "description">Description</th>
+                <th class="text-center col-md-4">Action</th>
+            </tr>
+        </thead> 
+        <tbody>
+            <tr *ngFor="let app of apps | paginate: {itemsPerPage: tableSize, currentPage: page, totalItems: count};">
+                <td class="col-md-2 text-capitalize">{{app.name}}</td>
+                <td class="col-md-6">{{app.description}}</td>
+                <td class="text-center col-md-4">
+                    <button class="btn btn-sm btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteApp(app.app_id)" *ngIf ="isAdmin" >Delete</button>
+                    <button class="btn btn-sm btn-warning me-2" (click)="onUpdateApp(app.app_id)" *ngIf ="isAdmin">Update</button>
+                    <button class="btn btn-sm btn-dark" (click)="onCreateBug(app.app_id)">Report a bug</button>
+                </td>
+            </tr>
+        </tbody>
+        
+    </table>
+    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)" class="text-center"> </pagination-controls>
+
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="DeleteModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-danger fw-bold" id="staticBackdropLabel">Warning</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        By clicking <b class="text-danger">Yes</b>, you're going to delete this APP forever !
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click) = "onDelete()">Yes, Delete it</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="onCancel()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
